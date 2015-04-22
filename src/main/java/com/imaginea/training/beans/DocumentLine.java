@@ -36,10 +36,7 @@ public class DocumentLine {
 
 		for (int i = 0; i < otherFileArray.length; i++) {
 
-			if (!this.getLineData().matches(".*\\b" + otherFileArray[i] + "\\b.*")) {
-		//		chkOne = false;
-
-			} else {
+			if (this.getLineData().matches(".*\\b" + otherFileArray[i] + "\\b.*")) {
 				count++;
 			}
 		}
@@ -50,12 +47,9 @@ public class DocumentLine {
 
 		for (int i = 0; i < thisFileArray.length; i++) {
 
-			if (!fileLine.getLineData().matches(".*\\b" + thisFileArray[i] + "\\b.*")) {
-			//	checkTwo = false;
-
-			} else {
-			//	checkTwo = true;
+			if (fileLine.getLineData().matches(".*\\b" + thisFileArray[i] + "\\b.*")) {
 				count++;
+
 			}
 
 		}
