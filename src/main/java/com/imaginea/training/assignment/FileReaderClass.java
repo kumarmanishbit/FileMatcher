@@ -85,7 +85,7 @@ public class FileReaderClass {
 				personInListTwo = iterateSecondList.next();
 				if (personInListOne.equals(personInListTwo)) {
 
-					System.out.println(personInListOne.getLineData()+">>"+personInListTwo.getLineData());
+					
 					matchedLines.add(personInListOne.getLineData()+">>"+personInListTwo.getLineData());
 
 				}

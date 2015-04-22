@@ -30,10 +30,11 @@ public class DocumentLine {
 		int count = 0;
 		DocumentLine fileLine = (DocumentLine) other;
 
-		String otherFileArray[] = fileLine.getLineData().split(" ");
+		String otherFileArray[] = fileLine.getLineData().toLowerCase().split(" ");
 
-		String thisFileArray[] = this.getLineData().split(" ");
+		String thisFileArray[] = this.getLineData().toLowerCase().split(" ");
 
+		
 		for (int i = 0; i < otherFileArray.length; i++) {
 
 			if (this.getLineData().matches(".*\\b" + otherFileArray[i] + "\\b.*")) {
