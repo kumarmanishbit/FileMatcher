@@ -14,7 +14,7 @@ public class DataReader {
 
 	public Set<DocumentLine> getData(String filePath) {
 		Set<DocumentLine> wordSet = new HashSet<DocumentLine>();
-		BufferedReader fileReaderOne = null, fileReaderTwo = null;
+		BufferedReader fileReaderOne = null;
 
 		try {
 
@@ -35,8 +35,6 @@ public class DataReader {
 			try {
 				if (fileReaderOne != null)
 					fileReaderOne.close();
-				if (fileReaderTwo != null)
-					fileReaderTwo.close();
 			} catch (IOException ioException) {
 				logger.info("Exception while closing the resource handlers");
 				logger.info(ioException.getMessage());
