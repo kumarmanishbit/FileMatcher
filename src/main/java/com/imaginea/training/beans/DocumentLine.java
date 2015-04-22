@@ -1,11 +1,6 @@
 package com.imaginea.training.beans;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class DocumentLine {
-
-	private boolean equalCheckflg = false;
 
 	private String lineData;
 
@@ -18,41 +13,55 @@ public class DocumentLine {
 	}
 
 	@Override
-	public boolean equals(Object object) {
+	public boolean equals(Object other) {
 
-		if (this == object) {
+		boolean chkOne = false, checkTwo = false;
+
+		if (this == other) {
 			return true;
 		}
-		if (object == null) {
+		if (other == null) {
 			return false;
 		}
-		if (getClass() != object.getClass()) {
+		if (getClass() != other.getClass()) {
 			return false;
 		}
 
-		DocumentLine fileLine = (DocumentLine) object;
+		int count = 0;
+		DocumentLine fileLine = (DocumentLine) other;
 
-		Set<String> firstFileData = new HashSet<String>();
+		String otherFileArray[] = fileLine.getLineData().split(" ");
 
-		String arrayData[] = this.getLineData().split(" ");
+		String thisFileArray[] = this.getLineData().split(" ");
 
-		for (int i = 0; i < arrayData.length; i++) {
-			firstFileData.add(arrayData[i]);
+		for (int i = 0; i < otherFileArray.length; i++) {
+
+			if (!this.getLineData().matches(".*\\b" + otherFileArray[i] + "\\b.*")) {
+		//		chkOne = false;
+
+			} else {
+				count++;
+			}
 		}
 
-		arrayData = null;
-		arrayData = fileLine.getLineData().split(" ");
-		for (int i = 0; i < arrayData.length; i++) {
-			equalCheckflg = true;
-			if (!firstFileData.contains(arrayData[i])) {
+		chkOne = otherFileArray.length == count;
 
-				equalCheckflg = false;
-				break;
+		count = 0;
+
+		for (int i = 0; i < thisFileArray.length; i++) {
+
+			if (!fileLine.getLineData().matches(".*\\b" + thisFileArray[i] + "\\b.*")) {
+			//	checkTwo = false;
+
+			} else {
+			//	checkTwo = true;
+				count++;
 			}
 
 		}
+		checkTwo = thisFileArray.length == count;
 
-		return equalCheckflg;
+		return checkTwo || chkOne;
 	}
 
 }

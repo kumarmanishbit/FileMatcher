@@ -20,11 +20,11 @@ public class FileReaderClass {
 
 		Set<DocumentLine> wordSetTwo = new HashSet<DocumentLine>();
 
-		Set<DocumentLine> matchedLines = new HashSet<DocumentLine>();
+		Set<String> matchedLines = new HashSet<String>();
 
 		DocumentLine lineText = null;
 
-		BufferedReader fileReaderONE = null, fileReaderTWO = null;
+		BufferedReader fileReaderOne = null, fileReaderTwo = null;
 
 		String firstfilePath = null, secondfilePath = null;
 
@@ -42,17 +42,17 @@ public class FileReaderClass {
 
 			String line = null;
 
-			fileReaderONE = new BufferedReader(new FileReader(firstfilePath));
-			fileReaderTWO = new BufferedReader(new FileReader(secondfilePath));
+			fileReaderOne = new BufferedReader(new FileReader(firstfilePath));
+			fileReaderTwo = new BufferedReader(new FileReader(secondfilePath));
 
-			while ((line = fileReaderONE.readLine()) != null) {
+			while ((line = fileReaderOne.readLine()) != null) {
 				lineText = new DocumentLine(line.toLowerCase());
 
 				wordSetOne.add(lineText);
 
 			}
 
-			while ((line = fileReaderTWO.readLine()) != null) {
+			while ((line = fileReaderTwo.readLine()) != null) {
 				lineText = new DocumentLine(line.toLowerCase());
 
 				wordSetTwo.add(lineText);
@@ -63,10 +63,10 @@ public class FileReaderClass {
 			logger.info(ioException.getMessage());
 		} finally {
 			try {
-				if (fileReaderONE != null)
-					fileReaderONE.close();
-				if (fileReaderTWO != null)
-					fileReaderTWO.close();
+				if (fileReaderOne != null)
+					fileReaderOne.close();
+				if (fileReaderTwo != null)
+					fileReaderTwo.close();
 			} catch (IOException ioException) {
 				logger.info("Exception while closing the resource handlers");
 				logger.info(ioException.getMessage());
@@ -85,7 +85,8 @@ public class FileReaderClass {
 				personInListTwo = iterateSecondList.next();
 				if (personInListOne.equals(personInListTwo)) {
 
-					matchedLines.add(personInListOne);
+					System.out.println(personInListOne.getLineData()+">>"+personInListTwo.getLineData());
+					matchedLines.add(personInListOne.getLineData()+">>"+personInListTwo.getLineData());
 
 				}
 			}
