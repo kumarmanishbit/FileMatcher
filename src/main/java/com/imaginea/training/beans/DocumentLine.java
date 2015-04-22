@@ -40,7 +40,7 @@ public class DocumentLine {
 		
 		for (int i = 0; i < listToBeProcess.length; i++) {
 
-			if (referenceLine.getLineData().toLowerCase().matches(".*\\b" + listToBeProcess[i] + "\\b.*")) {
+			if (referenceLine.getLineData().matches(".*\\b" + listToBeProcess[i] + "\\b.*")) {
 				count++;
 			}
 		}
