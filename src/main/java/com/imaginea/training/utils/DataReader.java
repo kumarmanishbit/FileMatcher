@@ -12,21 +12,19 @@ import com.imaginea.training.beans.DocumentLine;
 public class DataReader {
 	private final static Logger logger = Logger.getLogger(DataReader.class.getName());
 
-	
-	public Set<DocumentLine> getData(String filePath){
+	public Set<DocumentLine> getData(String filePath) {
 		Set<DocumentLine> wordSet = new HashSet<DocumentLine>();
 		BufferedReader fileReaderOne = null, fileReaderTwo = null;
-		DocumentLine lineText = null;
+
 		try {
 
 			String line = null;
 
 			fileReaderOne = new BufferedReader(new FileReader(filePath));
-			
-			while ((line = fileReaderOne.readLine()) != null) {
-				lineText = new DocumentLine(line.toLowerCase());
 
-				wordSet.add(lineText);
+			while ((line = fileReaderOne.readLine()) != null) {
+
+				wordSet.add(new DocumentLine(line.toLowerCase()));
 
 			}
 
