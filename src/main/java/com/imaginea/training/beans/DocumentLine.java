@@ -37,7 +37,7 @@ public class DocumentLine {
 		
 		for (int i = 0; i < otherFileArray.length; i++) {
 
-			if (this.getLineData().matches(".*\\b" + otherFileArray[i] + "\\b.*")) {
+			if (this.getLineData().toLowerCase().matches(".*\\b" + otherFileArray[i] + "\\b.*")) {
 				count++;
 			}
 		}
@@ -48,7 +48,7 @@ public class DocumentLine {
 
 		for (int i = 0; i < thisFileArray.length; i++) {
 
-			if (fileLine.getLineData().matches(".*\\b" + thisFileArray[i] + "\\b.*")) {
+			if (fileLine.getLineData().toLowerCase().matches(".*\\b" + thisFileArray[i] + "\\b.*")) {
 				count++;
 
 			}
