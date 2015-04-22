@@ -9,7 +9,6 @@
 		<finalName>fileTextMatcher</finalName>
 		<plugins>
 
-			<!-- download source code in Eclipse, best practice -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-eclipse-plugin</artifactId>
@@ -47,6 +46,13 @@
 			</plugin>
 
 		</plugins>
+		 <resources>
+        <resource>
+            <directory>${basedir}/datasource</directory>
+            <targetPath>${basedir}/target/datasource</targetPath>
+            <filtering>false</filtering>
+        </resource>
+    </resources> 
 	</build>
 
 </project>

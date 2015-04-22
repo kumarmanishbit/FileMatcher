@@ -1,11 +1,11 @@
 package com.imaginea.training.beans;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class DocumentLine {
 
-	private boolean flagCheck = false;
+	private boolean equalCheckflg = false;
 
 	private String lineData;
 
@@ -31,31 +31,28 @@ public class DocumentLine {
 		}
 
 		DocumentLine fileLine = (DocumentLine) object;
-		// System.out.println(person.getName());
-		// file 2 data
-		
-		
-		List<String> personTwo = new ArrayList<String>();
 
-		String arrayPerson[] = this.getLineData().split(" ");
+		Set<String> firstFileData = new HashSet<String>();
 
-		for (int i = 0; i < arrayPerson.length; i++) {
-			personTwo.add(arrayPerson[i]);
+		String arrayData[] = this.getLineData().split(" ");
+
+		for (int i = 0; i < arrayData.length; i++) {
+			firstFileData.add(arrayData[i]);
 		}
 
-		arrayPerson = null;
-		arrayPerson = fileLine.getLineData().split(" ");
-		for (int i = 0; i < arrayPerson.length; i++) {
-			flagCheck = true;
-			if (!personTwo.contains(arrayPerson[i])) {
+		arrayData = null;
+		arrayData = fileLine.getLineData().split(" ");
+		for (int i = 0; i < arrayData.length; i++) {
+			equalCheckflg = true;
+			if (!firstFileData.contains(arrayData[i])) {
 
-				flagCheck = false;
+				equalCheckflg = false;
 				break;
 			}
 
 		}
 
-		return flagCheck;
+		return equalCheckflg;
 	}
 
 }

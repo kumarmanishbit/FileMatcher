@@ -59,7 +59,7 @@ public class FileReaderClass {
 			}
 
 		} catch (IOException ioException) {
-			logger.info("Exception while reading input files");
+			logger.info("Exception while reading input files : You may need to check file existence");
 			logger.info(ioException.getMessage());
 		} finally {
 			try {
@@ -86,7 +86,6 @@ public class FileReaderClass {
 				if (personInListOne.equals(personInListTwo)) {
 
 					matchedLines.add(personInListOne);
-				
 
 				}
 			}
