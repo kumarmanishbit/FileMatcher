@@ -15,8 +15,6 @@ public class DocumentLine {
 	@Override
 	public boolean equals(Object other) {
 
-		boolean checkOne = false, checkTwo = false;
-
 		if (this == other) {
 			return true;
 		}
@@ -35,28 +33,28 @@ public class DocumentLine {
 		String thisFileArray[] = this.getLineData().toLowerCase().split(" ");
 
 		
-		for (int i = 0; i < otherFileArray.length; i++) {
+		String listToBeProcess[] = otherFileArray.length > thisFileArray.length ? thisFileArray : otherFileArray;
+		DocumentLine referenceLine=otherFileArray.length <= thisFileArray.length ? this : fileLine;
+		
+		
+		
+		for (int i = 0; i < listToBeProcess.length; i++) {
 
-			if (this.getLineData().toLowerCase().matches(".*\\b" + otherFileArray[i] + "\\b.*")) {
+			if (referenceLine.getLineData().toLowerCase().matches(".*\\b" + listToBeProcess[i] + "\\b.*")) {
 				count++;
 			}
 		}
-
-		checkOne = otherFileArray.length == count;
-
-		count = 0;
-
-		for (int i = 0; i < thisFileArray.length; i++) {
-
-			if (fileLine.getLineData().toLowerCase().matches(".*\\b" + thisFileArray[i] + "\\b.*")) {
-				count++;
-
-			}
-
-		}
-		checkTwo = thisFileArray.length == count;
-
-		return checkTwo || checkOne;
+	
+		return (count==listToBeProcess.length);
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 }
