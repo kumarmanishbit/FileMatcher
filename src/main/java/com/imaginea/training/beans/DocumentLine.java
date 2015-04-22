@@ -15,7 +15,7 @@ public class DocumentLine {
 	@Override
 	public boolean equals(Object other) {
 
-		boolean chkOne = false, checkTwo = false;
+		boolean checkOne = false, checkTwo = false;
 
 		if (this == other) {
 			return true;
@@ -41,7 +41,7 @@ public class DocumentLine {
 			}
 		}
 
-		chkOne = otherFileArray.length == count;
+		checkOne = otherFileArray.length == count;
 
 		count = 0;
 
@@ -55,7 +55,7 @@ public class DocumentLine {
 		}
 		checkTwo = thisFileArray.length == count;
 
-		return checkTwo || chkOne;
+		return checkTwo || checkOne;
 	}
 
 }
