@@ -8,7 +8,7 @@ import com.imaginea.training.beans.DocumentLine;
 
 public class MatchFinder {
 
-	public int getMatch(Set<DocumentLine> wordSetOne, Set<DocumentLine> wordSetTwo) {
+	public int getMatch(Set<DocumentLine> wordSetOne, Set<DocumentLine> wordSetTwo, SimilarityChecker<DocumentLine> similarityCriteria) {
 
 		Set<String> matchedLines = new HashSet<String>();
 		Iterator<DocumentLine> iterateFirsList = wordSetOne.iterator();
@@ -20,10 +20,11 @@ public class MatchFinder {
 
 			while (iterateSecondList.hasNext()) {
 				personInListTwo = iterateSecondList.next();
-				if (personInListOne.equals(personInListTwo)) {
+
+				if (similarityCriteria.similarCheck(personInListOne, personInListTwo)) {
 
 					matchedLines.add(personInListOne.getLineData() + ">>" + personInListTwo.getLineData());
-					System.out.println(personInListOne.getLineData() + ">>" + personInListTwo.getLineData());
+
 				}
 			}
 			iterateSecondList = wordSetTwo.iterator();
