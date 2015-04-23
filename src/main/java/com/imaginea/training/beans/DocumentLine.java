@@ -36,16 +36,17 @@ public class DocumentLine {
 		String listToBeProcess[] = otherFileArray.length > thisFileArray.length ? thisFileArray : otherFileArray;
 		DocumentLine referenceLine=otherFileArray.length <= thisFileArray.length ? this : fileLine;
 		
+		int listLength=listToBeProcess.length;
 		
 		
-		for (int i = 0; i < listToBeProcess.length; i++) {
+		for (int i = 0; i < listLength; i++) {
 
 			if (referenceLine.getLineData().matches(".*\\b" + listToBeProcess[i] + "\\b.*")) {
 				count++;
 			}
 		}
 	
-		return (count==listToBeProcess.length);
+		return (count==listLength);
 		
 		
 		

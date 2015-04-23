@@ -23,7 +23,7 @@ public class MatchFinder {
 				if (personInListOne.equals(personInListTwo)) {
 
 					matchedLines.add(personInListOne.getLineData() + ">>" + personInListTwo.getLineData());
-
+					System.out.println(personInListOne.getLineData() + ">>" + personInListTwo.getLineData());
 				}
 			}
 			iterateSecondList = wordSetTwo.iterator();
