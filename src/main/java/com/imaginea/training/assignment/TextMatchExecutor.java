@@ -14,30 +14,32 @@ public class TextMatchExecutor {
 
 	public static void main(String[] args) {
 
-		Set<DocumentLine> wordSetOne = new HashSet<DocumentLine>();
+		Set<DocumentLine> listSetOne = new HashSet<DocumentLine>();
 
-		Set<DocumentLine> wordSetTwo = new HashSet<DocumentLine>();
+		Set<DocumentLine> listSetTwo = new HashSet<DocumentLine>();
 
-		String firstfilePath = null, secondfilePath = null;
+		String firstSourcePath = null, secondSourcePath = null;
 
 		SimilarityChecker<DocumentLine> similarityChecker=new SimilarityCheckerImpl();
 		
 		if ((args.length == 2)) {
 
-			firstfilePath = args[0];
-			secondfilePath = args[1];
+			firstSourcePath = args[0];
+			secondSourcePath = args[1];
 
 		} else {
-			firstfilePath = "datasource/File1.txt";
-			secondfilePath = "datasource/File2.txt";
+			firstSourcePath = "datasource/File1.txt";
+			secondSourcePath = "datasource/File2.txt";
 		}
-
 		DataReader<DocumentLine, String> reader = new DataReaderImpl();
-		wordSetOne = reader.getData(firstfilePath);
-		wordSetTwo = reader.getData(secondfilePath);
+		
+		listSetOne = reader.getData(firstSourcePath);
+		
+		listSetTwo = reader.getData(secondSourcePath);
 
 		MatchFinder matchFinder = new MatchFinder();
-		System.out.println("Matches:" + matchFinder.getMatch(wordSetOne, wordSetTwo,similarityChecker));
+		
+		System.out.println("Matches:" + matchFinder.getMatch(listSetOne, listSetTwo,similarityChecker));
 
 	}
 }
